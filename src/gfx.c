@@ -102,7 +102,7 @@ void gfx_init()
 	/// correctly with ALL text (space is limited and some fonts take up
 	/// more space than others), and also check the license of the font
 	/// before distributing to make sure you are allowed to do so.
-	gfx_unicodeFont = TTF_OpenFont(_("data/TakaoPGothic.ttf"), 18);
+	gfx_unicodeFont = TTF_OpenFont(_("data/TakaoPGothic.ttf"), TTF_FONT_SIZE);
 	if (gfx_unicodeFont == NULL)
 	{
 		printf("ERROR: TTF_OpenFont: %s\n", TTF_GetError());
