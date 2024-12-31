@@ -95,15 +95,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define SLAVE_RESCUE_TARGET 250
 
-#define PIXFONT_LINE_HEIGHT 24
-#define PIXFONT_W 12
-#define PIXFONT_H 21
+#define PIXFONT_LINE_HEIGHT 16
+#define PIXFONT_W 8
+#define PIXFONT_H 14
 
 #define MENU_Y (screen->h / 3 + 50)
 #define MENU_W 600
 #define MENU_SPACING 30
 
-#define BRIEFING_WIDTH 640
+#define BRIEFING_WIDTH 600
 
 #define JS_DEADZONE 0.05
 #define JS_MAX (32767 - JS_DEADZONE*32767)

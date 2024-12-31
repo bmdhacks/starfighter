@@ -113,7 +113,7 @@ void gfx_init()
 	/// correctly with ALL text (space is limited and some fonts take up
 	/// more space than others), and also check the license of the font
 	/// before distributing to make sure you are allowed to do so.
-	gfx_unicodeFont = TTF_OpenFont(_("data/TakaoPGothic.ttf"), 13);
+	gfx_unicodeFont = TTF_OpenFont(_("data/TakaoPGothic.ttf"), 18);
 	if (gfx_unicodeFont == NULL)
 	{
 		printf("ERROR: TTF_OpenFont: %s\n", TTF_GetError());
@@ -400,11 +400,9 @@ int gfx_renderUnicodeBase(const char *in, int x, int y, int real_x, int fontColo
 			pango_get_log_attrs(remainingStr, strlen(remainingStr), -1, NULL, logAttrs, nLogAttrs);
 
 			nBreakPoints = 0;
-			for (i = 0; i < nLogAttrs; i++)
+			for (i = 1; i < nLogAttrs; i++)
 			{
-				if (logAttrs[i].is_line_break
-						&& gfx_charIsUTF8Start(remainingStr[i]))
-				{
+				if (isspace(remainingStr[i-1]) && gfx_charIsUTF8Start(remainingStr[i-1])) {
 					breakPoints[nBreakPoints] = gfx_unicodeCharacterCodepoint(
 							remainingStr, i);
 					nBreakPoints++;
