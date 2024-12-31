@@ -97,6 +97,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // various sizing stuff
 #define MSGBOX_HEIGHT 130
+#define SAVE_SLOT_HEIGHT 30
+#define SAVE_SLOT_OFFSET 10
+#define SAVE_TEXT_OFFSET (7*SAVE_SLOT_HEIGHT)
 
 #define TTF_FONT_SIZE 20
 

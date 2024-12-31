@@ -129,7 +129,7 @@ int save_initSlots()
 				gfx_createTextObject(TS_SAVESLOT_0 + i, saveSlot[i],
 					0, imagePos, FONT_WHITE);
 		}
-		imagePos += 20;
+		imagePos += SAVE_SLOT_HEIGHT;
 	}
 
 	return continueSaveIndex;
@@ -326,21 +326,21 @@ void save(int slot)
 
 void save_createSurface(SDL_Surface *savesSurface, int clickedSlot)
 {
-	int y = 10;
+	int y = SAVE_SLOT_OFFSET;
 
 	gfx_drawRect(savesSurface, 0, 0, 348, 298, 0x00, 0x00, 0x00);
 
 	for (int i = 1 ; i <= 5 ; i++)
 	{
 		if (clickedSlot == i)
-			gfx_drawRect(savesSurface, 5, y, 338, 25, 0x99, 0x00, 0x00);
+			gfx_drawRect(savesSurface, 5, y, 338, SAVE_SLOT_HEIGHT+5, 0x99, 0x00, 0x00);
 		else
-			gfx_drawRect(savesSurface, 5, y, 338, 25, 0x00, 0x00, 0x99);
+			gfx_drawRect(savesSurface, 5, y, 338, SAVE_SLOT_HEIGHT+5, 0x00, 0x00, 0x99);
 		gfx_renderUnicode(saveSlot[i], 70, y + 5, FONT_WHITE, 0, savesSurface);
-		y += 30;
+		y += SAVE_SLOT_HEIGHT+SAVE_SLOT_OFFSET;
 	}
 
-	gfx_renderUnicode(_("*** HELP ***"), 120, 170, FONT_WHITE, 0, savesSurface);
+	gfx_renderUnicode(_("*** HELP ***"), 120, SAVE_TEXT_OFFSET, FONT_WHITE, 0, savesSurface);
 
 	switch (clickedSlot)
 	{
@@ -349,9 +349,9 @@ void save_createSurface(SDL_Surface *savesSurface, int clickedSlot)
 		case 3:
 		case 4:
 		case 5:
-			gfx_drawRect(savesSurface, 5, 265, 100, 25, 0x00, 0x99, 0x00);
-			gfx_drawRect(savesSurface, 125, 265, 100, 25, 0x99, 0x99, 0x00);
-			gfx_drawRect(savesSurface, 243, 265, 100, 25, 0x99, 0x00, 0x00);
+			gfx_drawRect(savesSurface, 5, 265, 100, SAVE_SLOT_HEIGHT+5, 0x00, 0x99, 0x00);
+			gfx_drawRect(savesSurface, 125, 265, 100, SAVE_SLOT_HEIGHT+5, 0x99, 0x99, 0x00);
+			gfx_drawRect(savesSurface, 243, 265, 100, SAVE_SLOT_HEIGHT+5, 0x99, 0x00, 0x00);
 			gfx_renderUnicode(_("SAVE"), 10, 270, FONT_WHITE, 0, savesSurface);
 			gfx_renderUnicode(_("CANCEL"), 130, 270, FONT_WHITE, 0, savesSurface);
 			gfx_renderUnicode(_("DELETE"), 248, 270, FONT_WHITE, 0, savesSurface);
@@ -360,13 +360,13 @@ void save_createSurface(SDL_Surface *savesSurface, int clickedSlot)
 			gfx_renderUnicode(_("DELETE will remove the save"), 17, 240, FONT_WHITE, 0, savesSurface);
 			break;
 		case -1:
-			gfx_renderUnicode(_("First click a Save game slot to use"), 17, 200, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("First click a Save game slot to use"), 17, SAVE_TEXT_OFFSET+SAVE_SLOT_HEIGHT, FONT_WHITE, 0, savesSurface);
 			break;
 		case -10:
-			gfx_renderUnicode(_("Game Saved"), 130, 200, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("Game Saved"), 130, SAVE_TEXT_OFFSET+SAVE_SLOT_HEIGHT, FONT_WHITE, 0, savesSurface);
 			break;
 		case -11:
-			gfx_renderUnicode(_("Save Deleted"), 130, 200, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("Save Deleted"), 130, SAVE_TEXT_OFFSET+SAVE_SLOT_HEIGHT, FONT_WHITE, 0, savesSurface);
 			break;
 	}
 
