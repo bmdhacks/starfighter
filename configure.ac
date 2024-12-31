@@ -51,11 +51,6 @@ PKG_CHECK_EXISTS([SDL2_mixer], [
 	STARFIGHTER_CPPFLAGS="$STARFIGHTER_CPPFLAGS -DNOSOUND"
 	echo "WARNING: SDL_mixer not found; audio will not be supported."
 ])
-PKG_CHECK_MODULES([PANGO], [pango], [
-], [
-	STARFIGHTER_CPPFLAGS="$STARFIGHTER_CPPFLAGS -DNOFONT"
-	echo "WARNING: Pango not found; Unicode will not be supported."
-])
 
 AC_ARG_VAR([SF_WARN], [Set to 1 to enable compiler warnings])
 AC_ARG_VAR([SF_UNHARDEN], [Set to 1 to disable hardening flags (for compatibility)])

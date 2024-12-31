@@ -28,18 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef NOFONT
 
-// Undef MIN and MAX since pango-break.h includes these macros
-// (avoids compiler warnings)
-#ifdef MIN
-#undef MIN
-#endif
-
-#ifdef MAX
-#undef MAX
-#endif
-
 #include "SDL_ttf.h"
-#include <pango/pango-break.h>
 
 #endif
 
@@ -241,7 +230,7 @@ static int gfx_renderStringBase(const char *in, int x, int y, int real_x, int fo
 Legacy text rendering function, the original one which only supports
 ASCII. Generally not used anymore with the exception of some title
 screen bits that remain untranslated, but also used as a fallback if the
-game is compiled without SDL_ttf and Pango. Works OK on the English
+game is compiled without SDL_ttf. Works OK on the English
 text, but not likely to work well with translations (and won't work at
 all for languages like Chinese or Japanese based on non-Latin
 alphabets).
@@ -337,7 +326,6 @@ int gfx_renderUnicodeBase(const char *in, int x, int y, int real_x, int fontColo
 	int nBreakPoints;
 	char testStr[STRMAX];
 	char remainingStr[STRMAX];
-	PangoLogAttr logAttrs[STRMAX];
 	int nLogAttrs;
 	int i;
 	SDL_Rect area;
@@ -397,7 +385,6 @@ int gfx_renderUnicodeBase(const char *in, int x, int y, int real_x, int fontColo
 		while (changed && (w > avail_w))
 		{
 			nLogAttrs = gfx_unicodeNumCharacters(remainingStr) + 1;
-			pango_get_log_attrs(remainingStr, strlen(remainingStr), -1, NULL, logAttrs, nLogAttrs);
 
 			nBreakPoints = 0;
 			for (i = 1; i < nLogAttrs; i++)
