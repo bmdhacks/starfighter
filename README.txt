@@ -5,6 +5,17 @@ information. This file is offered as-is, without any warranty.
 
 ========================================================================
 
+If you are reading this, this is an ARM retro handheld port of the
+original project done for Portmaster.  The original starfighter can be
+found at:
+
+https://pr-starfighter.github.io/
+
+This fork originates from:
+
+https://github.com/bmdhacks/starfighter
+
+========================================================================
 
 Thank you for downloading Project: Starfighter!
 
@@ -79,7 +90,6 @@ Project: Starfighter depends on the following libraries to build:
 * SDL2_image <http://www.libsdl.org/projects/SDL_image/>
 * SDL2_mixer <http://www.libsdl.org/projects/SDL_mixer/>
 * SDL2_ttf <http://www.libsdl.org/projects/SDL_ttf/>
-* Pango <https://www.pango.org/>
 
 Once you have all dependencies installed,  do the following from the
 Project: Starfighter base directory:
