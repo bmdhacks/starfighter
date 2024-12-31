@@ -95,7 +95,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define SLAVE_RESCUE_TARGET 250
 
-#define TTF_FONT_SIZE 24
+// various sizing stuff
+#define MSGBOX_HEIGHT 130
+
+#define TTF_FONT_SIZE 20
 
 #define PIXFONT_LINE_HEIGHT 16
 #define PIXFONT_W 8

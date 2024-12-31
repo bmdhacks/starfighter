@@ -706,9 +706,9 @@ void gfx_createMessageBox(SDL_Surface *face, const char *message, int transparen
 	}
 
 	if (transparent)
-		gfx_messageBox = gfx_createAlphaRect(600, 150, 0x00, 0x00, 0x00);
+		gfx_messageBox = gfx_createAlphaRect(600, MSGBOX_HEIGHT, 0x00, 0x00, 0x00);
 	else
-		gfx_messageBox = gfx_createSurface(600, 150);
+		gfx_messageBox = gfx_createSurface(600, MSGBOX_HEIGHT);
 
 	if (face != NULL)
 	{
