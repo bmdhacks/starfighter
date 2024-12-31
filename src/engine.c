@@ -56,7 +56,7 @@ Engine engine;
 
 void engine_init()
 {
-	engine.musicVolume = MIX_MAX_VOLUME;
+	engine.musicVolume = SDL_MIX_MAXVOLUME;
 	engine.useAudio = 1;
 	engine.oldScript = 0;
 

@@ -50,3 +50,5 @@ misc/.deps
 project.xcworkspace/
 xcuserdata/
 *.xcuserdatad
+.cache
+compile_commands.json

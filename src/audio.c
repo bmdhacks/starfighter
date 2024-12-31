@@ -68,7 +68,7 @@ void audio_playSound(int sid, float x, float y)
 	int angle = atanf((x - (screen->w / 2)) / (screen->w / 2)) * 180 / M_PI;
 	int attenuation = fabsf(x - (screen->w / 2)) / (screen->w / 20);
 	float distance = sqrtf(powf(fabsf(x - (screen->w / 2)), 2) + powf(fabsf(y - (screen->h / 2)), 2));
-	const int max_volume = MIX_MAX_VOLUME;
+	const int max_volume = SDL_MIX_MAXVOLUME;
 	int volume = max_volume - (max_volume * distance / (3 * screen->w));
 
 	if ((!engine.useSound) || (!engine.useAudio) || (volume <= 0))
@@ -193,7 +193,7 @@ void audio_playMusic(const char *filename, int loops)
 		{
 			audio_haltMusic();
 			music = Mix_LoadMUS(filename);
-			audio_setMusicVolume(MIX_MAX_VOLUME);
+			audio_setMusicVolume(SDL_MIX_MAXVOLUME);
 			Mix_PlayMusic(music, loops);
 			current_music = filename;
 		}

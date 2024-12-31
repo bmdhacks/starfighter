@@ -2716,7 +2716,7 @@ int game_mainLoop()
 	engine.counter2 = (SDL_GetTicks() + 1000);
 
 	engine.missionCompleteTimer = 0;
-	engine.musicVolume = MIX_MAX_VOLUME;
+	engine.musicVolume = SDL_MIX_MAXVOLUME;
 
 	int rtn = 0;
 
@@ -2824,7 +2824,7 @@ int game_mainLoop()
 						engine.keyState[KEY_ALTFIRE] = 0;
 						engine.xaxis = 0;
 						engine.yaxis = 0;
-						LIMIT_ADD(engine.musicVolume, -0.2, 0, MIX_MAX_VOLUME);
+						LIMIT_ADD(engine.musicVolume, -0.2, 0, SDL_MIX_MAXVOLUME);
 						audio_setMusicVolume(engine.musicVolume);
 					}
 					else
@@ -2840,7 +2840,7 @@ int game_mainLoop()
 			else
 			{
 				player_getInput();
-				LIMIT_ADD(engine.musicVolume, -0.2, 0, MIX_MAX_VOLUME);
+				LIMIT_ADD(engine.musicVolume, -0.2, 0, SDL_MIX_MAXVOLUME);
 				audio_setMusicVolume(engine.musicVolume);
 				if (SDL_GetTicks() >= engine.missionCompleteTimer)
 				{

@@ -40,7 +40,7 @@ void radio_setMessage(int face, const char *in, int priority)
 	if ((gfx_textSprites[TS_RADIO].life > 0) && (priority == 0))
 		return;
 
-	gfx_createTextObject(TS_RADIO, in, -1, 50, FONT_WHITE);
+	gfx_createTextObject(TS_RADIO, in, -1, 100, FONT_WHITE);
 	gfx_textSprites[TS_RADIO].life = engine.radioLife;
 
 	if (face > -1)
