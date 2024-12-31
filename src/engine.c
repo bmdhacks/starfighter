@@ -232,13 +232,12 @@ void engine_setupConfigDirectory()
 #else
 	subdir = "starfighter";
 
-	if ((userHome = getenv("XDG_CONFIG_HOME")) != NULL)
 	{
-		snprintf(dir, PATH_MAX, "%s/%s", userHome, subdir);
-	}
-	{
-		if ((userHome = getenv("HOME")) == NULL)
-			userHome = getpwuid(getuid())->pw_dir;
+		if ((userHome = getenv("XDG_DATA_HOME")) != NULL)
+			snprintf(dir, PATH_MAX, "%s/%s", userHome, subdir);
+		else
+			if ((userHome = getenv("HOME")) == NULL)
+				userHome = getpwuid(getuid())->pw_dir;
 
 		snprintf(dir, PATH_MAX, "%s/.config", userHome);
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
