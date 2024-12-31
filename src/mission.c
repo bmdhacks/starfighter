@@ -1127,9 +1127,9 @@ static void mission_drawScreen()
 		SDL_FillRect(screen, &r, SDL_MapRGB(screen->format, 0, i, 0));
 	}
 
-	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 235, BRIEFING_WIDTH, 30, 0x00, 0x77, 0x00);
-	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 215, BRIEFING_WIDTH, 130, 0x00, 0x33, 0x00);
-	screen_renderUnicode(_("Primary Objectives"), screen->w / 2 - BRIEFING_WIDTH / 2 + 10, screen->h / 2 - 232, FONT_WHITE);
+	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 235, BRIEFING_WIDTH, 40, 0x00, 0x77, 0x00);
+	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 205, BRIEFING_WIDTH, 130, 0x00, 0x33, 0x00);
+	screen_renderUnicode(_("Primary Objectives"), screen->w / 2 - BRIEFING_WIDTH / 2 + 10, screen->h / 2 - 231, FONT_WHITE);
 
 	for (int i = 0 ; i < 3 ; i++)
 	{
@@ -1141,9 +1141,9 @@ static void mission_drawScreen()
 
 	if (mission.secondaryType[0] != M_NONE)
 	{
-		screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 75, BRIEFING_WIDTH, 30, 0x00, 0x77, 0x77);
-		screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 55, BRIEFING_WIDTH, 130, 0x00, 0x33, 0x33);
-		screen_renderUnicode(_("Secondary Objectives"), screen->w / 2 - BRIEFING_WIDTH / 2 + 10, screen->h / 2 - 72, FONT_WHITE);
+		screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 75, BRIEFING_WIDTH, 40, 0x00, 0x77, 0x77);
+		screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 - 45, BRIEFING_WIDTH, 130, 0x00, 0x33, 0x33);
+		screen_renderUnicode(_("Secondary Objectives"), screen->w / 2 - BRIEFING_WIDTH / 2 + 10, screen->h / 2 - 71, FONT_WHITE);
 
 		for (int i = 0 ; i < 3 ; i++)
 		{
@@ -1155,9 +1155,9 @@ static void mission_drawScreen()
 		}
 	}
 
-	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 + 85, BRIEFING_WIDTH, 20, 0x77, 0x77, 0x00);
-	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 + 105, BRIEFING_WIDTH, 130, 0x33, 0x33, 0x00);
-	screen_renderUnicode(_("Additional Information"), screen->w / 2 - BRIEFING_WIDTH / 2 + 10, screen->h / 2 + 88, FONT_WHITE);
+	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 + 85, BRIEFING_WIDTH, 40, 0x77, 0x77, 0x00);
+	screen_drawRect(screen->w / 2 - BRIEFING_WIDTH / 2, screen->h / 2 + 115, BRIEFING_WIDTH, 130, 0x33, 0x33, 0x00);
+	screen_renderUnicode(_("Additional Information"), screen->w / 2 - BRIEFING_WIDTH / 2 + 10, screen->h / 2 + 89, FONT_WHITE);
 }
 
 /*
