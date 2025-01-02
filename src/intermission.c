@@ -764,9 +764,9 @@ static void intermission_showStatus(SDL_Surface *infoSurface)
 		}
 	}
 
-	screen_drawRect(status_x, status_y, infoSurface->w, 20, 0x00, 0x00, 0x99);
+	screen_drawRect(status_x, status_y, infoSurface->w, 30, 0x00, 0x00, 0x99);
 
-	screen_drawRect(status_x, status_y + infoSurface->h - 10, infoSurface->w, 20, 0x00, 0x00, 0x99);
+	screen_drawRect(status_x, status_y + infoSurface->h - 10, infoSurface->w, 30, 0x00, 0x00, 0x99);
 
 	screen_blitText(TS_STATUS_HEADER, -1, status_y + 3);
 	screen_blitText(TS_STATUS_FOOTER, -1, status_y + infoSurface->h - 6);
