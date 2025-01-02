@@ -390,9 +390,9 @@ int save_showSlots(SDL_Surface *savesSurface, int saveSlot, int x, int y)
 
 	SDL_Rect r;
 	r.x = x + 1;
-	r.y = y + 15;
+	r.y = y + SAVE_SLOT_OFFSET;
 	r.w = 348;
-	r.h = 25;
+	r.h = SAVE_SLOT_HEIGHT;
 
 	if ((engine.keyState[KEY_FIRE]))
 	{
@@ -404,22 +404,22 @@ int save_showSlots(SDL_Surface *savesSurface, int saveSlot, int x, int y)
 				clickedSlot = i;
 				save_createSurface(savesSurface, i);
 			}
-			r.y += 30;
+			r.y += SAVE_SLOT_HEIGHT+SAVE_SLOT_OFFSET;
 		}
 
 		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6,
-			x + 15, y + 265, 100, 25))
+						   x + 5, y + SAVE_SURFACE_HEIGHT - SAVE_SLOT_HEIGHT - 10 , 100, SAVE_SLOT_HEIGHT))
 		{
 			save(saveSlot);
 			save_createSurface(savesSurface, -10);
 		}
 
 		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6,
-				x + 135, y + 265, 100, 25))
+						   x + 125, y + SAVE_SURFACE_HEIGHT - SAVE_SLOT_HEIGHT - 10, 100, SAVE_SLOT_HEIGHT))
 			save_createSurface(savesSurface, -1);
 
 		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6,
-			x + 253, y + 265, 100, 25))
+						   x + 243, y + SAVE_SURFACE_HEIGHT - SAVE_SLOT_HEIGHT - 10, 100, SAVE_SLOT_HEIGHT))
 		{
 			char filename[PATH_MAX];
 			snprintf(filename, PATH_MAX, "%ssave%.2d.sav", engine.configDirectory,
