@@ -2077,9 +2077,9 @@ int intermission()
 	intermission_setPlanets();
 
 	SDL_Surface *statsSurface = gfx_createAlphaRect(DEFAULT_SCREEN_WIDTH * 7 / 8, DEFAULT_SCREEN_HEIGHT - 200, 0x00, 0x00, 0x99);
-	SDL_Surface *savesSurface = gfx_createSurface(350, 300);
+	SDL_Surface *savesSurface = gfx_createSurface(350, 450);
 	SDL_Surface *optionsSurface = gfx_createSurface(320, 240);
-	SDL_Surface *commsSurface = gfx_createSurface(450, 336);
+	SDL_Surface *commsSurface = gfx_createSurface(450, 400);
 
 	save_createSurface(savesSurface, -1);
 	intermission_createOptions(optionsSurface);

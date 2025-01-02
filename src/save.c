@@ -35,6 +35,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "screen.h"
 #include "weapons.h"
 
+/* sizing stuff */
+#define SAVE_SURFACE_HEIGHT 400
+#define SAVE_SLOT_HEIGHT 30
+#define SAVE_SLOT_OFFSET 10
+#define SAVE_TEXT_OFFSET (SAVE_SURFACE_HEIGHT-(6*SAVE_SLOT_HEIGHT))
+
 static char saveSlot[10][STRMAX_SHORT];
 
 /*
@@ -328,7 +334,7 @@ void save_createSurface(SDL_Surface *savesSurface, int clickedSlot)
 {
 	int y = SAVE_SLOT_OFFSET;
 
-	gfx_drawRect(savesSurface, 0, 0, 348, 298, 0x00, 0x00, 0x00);
+	gfx_drawRect(savesSurface, 0, 0, 348, SAVE_SURFACE_HEIGHT, 0x00, 0x00, 0x00);
 
 	for (int i = 1 ; i <= 5 ; i++)
 	{
@@ -349,15 +355,15 @@ void save_createSurface(SDL_Surface *savesSurface, int clickedSlot)
 		case 3:
 		case 4:
 		case 5:
-			gfx_drawRect(savesSurface, 5, 265, 100, SAVE_SLOT_HEIGHT+5, 0x00, 0x99, 0x00);
-			gfx_drawRect(savesSurface, 125, 265, 100, SAVE_SLOT_HEIGHT+5, 0x99, 0x99, 0x00);
-			gfx_drawRect(savesSurface, 243, 265, 100, SAVE_SLOT_HEIGHT+5, 0x99, 0x00, 0x00);
-			gfx_renderUnicode(_("SAVE"), 10, 270, FONT_WHITE, 0, savesSurface);
-			gfx_renderUnicode(_("CANCEL"), 130, 270, FONT_WHITE, 0, savesSurface);
-			gfx_renderUnicode(_("DELETE"), 248, 270, FONT_WHITE, 0, savesSurface);
-			gfx_renderUnicode(_("SAVE will save the game"), 17, 200, FONT_WHITE, 0, savesSurface);
-			gfx_renderUnicode(_("CANCEL will unselect that slot"), 17, 220, FONT_WHITE, 0, savesSurface);
-			gfx_renderUnicode(_("DELETE will remove the save"), 17, 240, FONT_WHITE, 0, savesSurface);
+			gfx_drawRect(savesSurface, 5, SAVE_SURFACE_HEIGHT-SAVE_SLOT_HEIGHT-10, 100, SAVE_SLOT_HEIGHT+5, 0x00, 0x99, 0x00);
+			gfx_drawRect(savesSurface, 125, SAVE_SURFACE_HEIGHT-SAVE_SLOT_HEIGHT-10, 100, SAVE_SLOT_HEIGHT+5, 0x99, 0x99, 0x00);
+			gfx_drawRect(savesSurface, 243, SAVE_SURFACE_HEIGHT-SAVE_SLOT_HEIGHT-10, 100, SAVE_SLOT_HEIGHT+5, 0x99, 0x00, 0x00);
+			gfx_renderUnicode(_("SAVE"), 10, SAVE_SURFACE_HEIGHT-SAVE_SLOT_HEIGHT-5, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("CANCEL"), 130, SAVE_SURFACE_HEIGHT-SAVE_SLOT_HEIGHT-5, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("DELETE"), 248, SAVE_SURFACE_HEIGHT-SAVE_SLOT_HEIGHT-5, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("SAVE will save the game"), 17, SAVE_TEXT_OFFSET+(2*TTF_FONT_SIZE)+4, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("CANCEL will unselect that slot"), 17, SAVE_TEXT_OFFSET+(3*TTF_FONT_SIZE)+4, FONT_WHITE, 0, savesSurface);
+			gfx_renderUnicode(_("DELETE will remove the save"), 17, SAVE_TEXT_OFFSET+(4*TTF_FONT_SIZE)+4, FONT_WHITE, 0, savesSurface);
 			break;
 		case -1:
 			gfx_renderUnicode(_("First click a Save game slot to use"), 17, SAVE_TEXT_OFFSET+SAVE_SLOT_HEIGHT, FONT_WHITE, 0, savesSurface);
