@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "defs.h"
 #include "structs.h"
 
-#define SHOP_WIDTH 600
-#define SHOP_HEIGHT 336
+#define SHOP_WIDTH 630
+#define SHOP_HEIGHT 440
 #define SHOP_X (screen->w / 2 - SHOP_WIDTH / 2)
 #define SHOP_Y (INTERMISSION_YCENTER - SHOP_HEIGHT / 2)
 

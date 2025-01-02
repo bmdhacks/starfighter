@@ -1880,43 +1880,48 @@ static void intermission_doComms(SDL_Surface *comms, int x, int y)
 
 static void intermission_createOptions(SDL_Surface *optionsSurface)
 {
+	#define OPTION_HEIGHT 32
+	#define OPTION_ON_X 200
+	#define OPTION_OFF_X 255
+
+	
 	SDL_FillRect(optionsSurface, NULL, black);
 
 	gfx_drawRect(optionsSurface, 0, 0, optionsSurface->w - 2, optionsSurface->h - 2, 0x00, 0x00, 0x44);
 
-	gfx_renderUnicode(_("++ OPTIONS ++"), 105, 8, FONT_WHITE, 0, optionsSurface);
+	gfx_renderUnicode(_("++ OPTIONS ++"), 85, 8, FONT_WHITE, 0, optionsSurface);
 
-	gfx_drawRect(optionsSurface, 190, 45, 50, 22, 0x00, 0x00, 0x00);
-	gfx_drawRect(optionsSurface, 250, 45, 50, 22, 0x00, 0x00, 0x00);
-	gfx_drawRect(optionsSurface, 20, 45, 150, 22, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 190, 45, 50, OPTION_HEIGHT, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 250, 45, 50, OPTION_HEIGHT, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 20, 45, 150, OPTION_HEIGHT, 0x00, 0x00, 0x00);
 	if (engine.useSound)
-		gfx_drawRect(optionsSurface, 190, 45, 50, 22, 0xff, 0x00, 0x00);
+		gfx_drawRect(optionsSurface, 190, 45, 50, OPTION_HEIGHT, 0xff, 0x00, 0x00);
 	else
-		gfx_drawRect(optionsSurface, 250, 45, 50, 22, 0xff, 0x00, 0x00);
-	gfx_renderUnicode(_("ON"), 207, 50, FONT_WHITE, 0, optionsSurface);
-	gfx_renderUnicode(_("OFF"), 263, 50, FONT_WHITE, 0, optionsSurface);
+		gfx_drawRect(optionsSurface, 250, 45, 50, OPTION_HEIGHT, 0xff, 0x00, 0x00);
+	gfx_renderUnicode(_("ON"), OPTION_ON_X, 50, FONT_WHITE, 0, optionsSurface);
+	gfx_renderUnicode(_("OFF"), OPTION_OFF_X, 50, FONT_WHITE, 0, optionsSurface);
 	gfx_renderUnicode(_("SOUND"), 30, 50, FONT_WHITE, 0, optionsSurface);
 
-	gfx_drawRect(optionsSurface, 190, 95, 50, 22, 0x00, 0x00, 0x00);
-	gfx_drawRect(optionsSurface, 250, 95, 50, 22, 0x00, 0x00, 0x00);
-	gfx_drawRect(optionsSurface, 20, 95, 150, 22, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 190, 95, 50, OPTION_HEIGHT, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 250, 95, 50, OPTION_HEIGHT, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 20, 95, 150, OPTION_HEIGHT, 0x00, 0x00, 0x00);
 	if (engine.useMusic)
-		gfx_drawRect(optionsSurface, 190, 95, 50, 22, 0xff, 0x00, 0x00);
+		gfx_drawRect(optionsSurface, 190, 95, 50, OPTION_HEIGHT, 0xff, 0x00, 0x00);
 	else
-		gfx_drawRect(optionsSurface, 250, 95, 50, 22, 0xff, 0x00, 0x00);
-	gfx_renderUnicode(_("ON"), 207, 100, FONT_WHITE, 0, optionsSurface);
-	gfx_renderUnicode(_("OFF"), 263, 100, FONT_WHITE, 0, optionsSurface);
+		gfx_drawRect(optionsSurface, 250, 95, 50, OPTION_HEIGHT, 0xff, 0x00, 0x00);
+	gfx_renderUnicode(_("ON"), OPTION_ON_X, 100, FONT_WHITE, 0, optionsSurface);
+	gfx_renderUnicode(_("OFF"), OPTION_OFF_X, 100, FONT_WHITE, 0, optionsSurface);
 	gfx_renderUnicode(_("MUSIC"), 30, 100, FONT_WHITE, 0, optionsSurface);
 
- 	gfx_drawRect(optionsSurface, 190, 145, 50, 22, 0x00, 0x00, 0x00);
-	gfx_drawRect(optionsSurface, 250, 145, 50, 22, 0x00, 0x00, 0x00);
-	gfx_drawRect(optionsSurface, 20, 145, 150, 22, 0x00, 0x00, 0x00);
+ 	gfx_drawRect(optionsSurface, 190, 145, 50, OPTION_HEIGHT, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 250, 145, 50, OPTION_HEIGHT, 0x00, 0x00, 0x00);
+	gfx_drawRect(optionsSurface, 20, 145, 150, OPTION_HEIGHT, 0x00, 0x00, 0x00);
 	if (engine.fullScreen)
-		gfx_drawRect(optionsSurface, 190, 145, 50, 22, 0xff, 0x00, 0x00);
+		gfx_drawRect(optionsSurface, 190, 145, 50, OPTION_HEIGHT, 0xff, 0x00, 0x00);
 	else
-		gfx_drawRect(optionsSurface, 250, 145, 50, 22, 0xff, 0x00, 0x00);
-	gfx_renderUnicode(_("ON"), 207, 150, FONT_WHITE, 0, optionsSurface);
-	gfx_renderUnicode(_("OFF"), 263, 150, FONT_WHITE, 0, optionsSurface);
+		gfx_drawRect(optionsSurface, 250, 145, 50, OPTION_HEIGHT, 0xff, 0x00, 0x00);
+	gfx_renderUnicode(_("ON"), OPTION_ON_X, 150, FONT_WHITE, 0, optionsSurface);
+	gfx_renderUnicode(_("OFF"), OPTION_OFF_X, 150, FONT_WHITE, 0, optionsSurface);
 	gfx_renderUnicode(_("FULLSCREEN"), 30, 150, FONT_WHITE, 0, optionsSurface);
 }
 
@@ -2214,7 +2219,7 @@ int intermission()
 
 		switch(section)
 		{
-			case 0:
+			case INTERMISSION_START_OR_GOTO:
 				if (game.stationedPlanet == game.destinationPlanet)
 				{
 					game.area = intermission_planets[game.stationedPlanet].missionNumber;
@@ -2247,7 +2252,7 @@ int intermission()
 				}
 				break;
 
-			case 1:
+			case INTERMISSION_VIEW_MAP:
 				if (engine.keyState[KEY_ALTFIRE])
 				{
 					movePlanets = !movePlanets;
@@ -2272,41 +2277,41 @@ int intermission()
 					screen_blitText(TS_DEST_PLANET, screen->w - 250, screen->h - 120);
 				break;
 
-			case 2:
+			case INTERMISSION_CURRENT_STATUS:
 				intermission_showStatus(statsSurface);
 				break;
 
-			case 3:
+			case INTERMISSION_SAVE:
 				x = screen->w / 2 - savesSurface->w / 2;
 				y = INTERMISSION_YCENTER - savesSurface->h / 2;
 				screen_blit(savesSurface, x, y);
 				saveSlot = save_showSlots(savesSurface, saveSlot, x, y);
 				break;
 
-			case 4:
+			case INTERMISSION_UPGRADE:
 				shop_show();
 				break;
 
-			case 5:
+			case INTERMISSION_MISSIONS:
 				x = screen->w / 2 - commsSurface->w / 2;
 				y = INTERMISSION_YCENTER - commsSurface->h / 2;
 				screen_blit(commsSurface, x, y);
 				intermission_doComms(commsSurface, x, y);
 				break;
 
-			case 6:
+			case INTERMISSION_OPTIONS:
 				x = screen->w / 2 - optionsSurface->w / 2;
 				y = INTERMISSION_YCENTER - optionsSurface->h / 2;
 				screen_blit(optionsSurface, x, y);
 				intermission_doOptions(optionsSurface, x, y);
 				break;
 
-			case 7:
+			case INTERMISSION_EXIT:
 				rtn = 0;
 				engine.done = ENGINE_CLOSING;
 				break;
 
-			case 8:
+			case INTERMISSION_INTERCEPTION:
 				intermission_showSystem(orbit_pos, 0);
 
 				screen_blit(intermission_planets[game.stationedPlanet].image, 150, screen->h - 90);
@@ -2350,8 +2355,8 @@ int intermission()
 		if (section != 8)
 		{
 			x = screen->w / 16;
-			y = screen->h - 80;
-			w = screen->w - 2 * x - 32;
+			y = screen->h - 90;
+			w = screen->w - 2 * x - INTERMISSION_ICON_SIZE;
 			if ((game.stationedPlanet == game.destinationPlanet)
 					&& (!intermission_planets[game.stationedPlanet].missionCompleted))
 				screen_blit(gfx_sprites[SP_START_MISSION], x, y);
@@ -2366,7 +2371,7 @@ int intermission()
 			screen_blit(gfx_sprites[SP_OPTIONS], x + 6 * w / 7, y);
 			screen_blit(gfx_sprites[SP_EXIT], x + w, y);
 
-			if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x, y, 32, 32)
+			if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE)
 					&& ((game.stationedPlanet != game.destinationPlanet)
 						|| (!intermission_planets[game.stationedPlanet].missionCompleted)))
 			{
@@ -2382,7 +2387,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + w / 7, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + w / 7, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_MAP, -1, screen->h - 25);
 
@@ -2393,7 +2398,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 2 * w / 7, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 2 * w / 7, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_STATUS, -1, screen->h - 25);
 
@@ -2404,7 +2409,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 3 * w / 7, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 3 * w / 7, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_SAVE_GAME, -1, screen->h - 25);
 
@@ -2415,7 +2420,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 4 * w / 7, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 4 * w / 7, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_SHOP, -1, screen->h - 25);
 
@@ -2426,7 +2431,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 5 * w / 7, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 5 * w / 7, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_COMMS, -1, screen->h - 25);
 
@@ -2438,7 +2443,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 6 * w / 7, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 6 * w / 7, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_OPTIONS, -1, screen->h - 25);
 
@@ -2449,7 +2454,7 @@ int intermission()
 					engine.keyState[KEY_FIRE] = 0;
 				}
 			}
-			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + w, y, 32, 32))
+			else if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + w, y, INTERMISSION_ICON_SIZE, INTERMISSION_ICON_SIZE))
 			{
 				screen_blitText(TS_INFO_EXIT, -1, screen->h - 25);
 

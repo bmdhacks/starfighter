@@ -27,6 +27,21 @@ extern Planet intermission_planets[MAX_PLANETS];
 
 #define INTERMISSION_YCENTER (50 + (screen->h - 150) / 2)
 
+// Intermission Menu Sections
+enum {
+  INTERMISSION_START_OR_GOTO = 0,
+  INTERMISSION_VIEW_MAP = 1,
+  INTERMISSION_CURRENT_STATUS = 2,
+  INTERMISSION_SAVE = 3,
+  INTERMISSION_UPGRADE = 4,
+  INTERMISSION_MISSIONS = 5,
+  INTERMISSION_OPTIONS = 6,
+  INTERMISSION_EXIT = 7,
+  INTERMISSION_INTERCEPTION = 8
+};
+
+#define INTERMISSION_ICON_SIZE 62
+	
 void intermission_initPlanets(int system);
 void intermission_unlockPlanets();
 void intermission_updateSystemStatus();

@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Macros
+#include "SDL_image.h"
 #define LIMIT(x, a, b) x = ((x) < (b) ? ((x) > (a) ? (x) : (a)) : (b))
 #define LIMIT_ADD(x, y, a, b) x = (((x) + (y)) < (b) ? \
 	(((x) + (y)) > (a) ? \
@@ -738,6 +739,7 @@ enum {
 	SECTION_GAME
 };
 
+	
 // Systems
 enum {
 	SYSTEM_SPIRIT,
