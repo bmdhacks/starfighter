@@ -41,6 +41,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "weapons.h"
 #include "window.h"
 
+#define OPTION_HEIGHT 32
+#define OPTION_ON_X 200
+#define OPTION_OFF_X 255
+	
 Planet intermission_planets[MAX_PLANETS];
 
 void intermission_initPlanets(int system)
@@ -1880,11 +1884,6 @@ static void intermission_doComms(SDL_Surface *comms, int x, int y)
 
 static void intermission_createOptions(SDL_Surface *optionsSurface)
 {
-	#define OPTION_HEIGHT 32
-	#define OPTION_ON_X 200
-	#define OPTION_OFF_X 255
-
-	
 	SDL_FillRect(optionsSurface, NULL, black);
 
 	gfx_drawRect(optionsSurface, 0, 0, optionsSurface->w - 2, optionsSurface->h - 2, 0x00, 0x00, 0x44);
@@ -1929,14 +1928,14 @@ static void intermission_doOptions(SDL_Surface *optionsSurface, int x, int y)
 {
 	if ((engine.keyState[KEY_FIRE]))
 	{
-		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 187, y + 42, 45, 22))
+		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 187, y + 42, 50, OPTION_HEIGHT))
 			engine.useSound = 1;
 
-		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 248, y + 42, 45, 22))
+		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 248, y + 42, 50, OPTION_HEIGHT))
 			engine.useSound = 0;
 
 
-		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 187, y + 92, 45, 22))
+		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 187, y + 92, 50, OPTION_HEIGHT))
 		{
 			engine.useMusic = 1;
 #ifdef OLD_MUSIC
@@ -1946,21 +1945,22 @@ static void intermission_doOptions(SDL_Surface *optionsSurface, int x, int y)
 #endif
 		}
 
-		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 248, y + 92, 45, 22))
+		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 248, y + 92, 50, OPTION_HEIGHT))
 		{
 			engine.useMusic = 0;
 			audio_haltMusic();
 		}
 
-		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 187, y + 142, 45, 22))
+		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 187, y + 142, 50, OPTION_HEIGHT))
 		{
+
 			if (!engine.fullScreen)
 			{
 				engine_setFullscreen(1);
 			}
 		}
 
-		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 248, y + 142, 45, 22))
+		if (game_collision(engine.cursor_x + 13, engine.cursor_y + 13, 6, 6, x + 248, y + 142, 50, OPTION_HEIGHT))
 		{
 			if (engine.fullScreen)
 			{

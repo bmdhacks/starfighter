@@ -595,7 +595,7 @@ void cutscene_init(int scene)
 		}
 
 		if ((showMessage) && (gfx_messageBox != NULL))
-			screen_blit(gfx_messageBox, (screen->w - gfx_messageBox->w) / 2, screen->h - MSGBOX_HEIGHT);
+			screen_blit(gfx_messageBox, (screen->w - gfx_messageBox->w) / 2, screen->h - MSGBOX_HEIGHT - 20);
 
 		/// Instructions for how to skip the current cutscene
 		screen_renderUnicode(_("Press [Escape] to skip"), -1, screen->h - 20, FONT_WHITE);
