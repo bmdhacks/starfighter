@@ -99,7 +99,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // various sizing stuff
 #define MSGBOX_HEIGHT 100
 
-#define TTF_FONT_SIZE 20
+#define TTF_FONT_SIZE 19
 
 #define PIXFONT_LINE_HEIGHT 16
 #define PIXFONT_W 8

@@ -638,8 +638,8 @@ SDL_Surface *gfx_createTextSurface(const char *inString, int color)
 	{
 		engine_error(TTF_GetError());
 	}
-	w += 2;
-	th += 2;
+	w += 3;
+	th += 3;
 	h = MAX(th, PIXFONT_LINE_HEIGHT);
 #else
 	w = strlen(inString) * (PIXFONT_W + 1) + 1;
